@@ -1,0 +1,249 @@
+/* ============================================
+   GLOBAL RESET - Removes default browser styling
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes padding and border included in element width */
+}
+
+/* ============================================
+   BODY - Main page background and layout
+   ============================================ */
+body {
+    /* font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    font-family: Comfortaa, sans-serif;
+    background-color: #FADDE1; /* Light pink background color */
+    min-height: 100vh; /* Ensures body takes up full viewport height */
+    display: flex; /* Uses flexbox for centering */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    padding: 20px; /* Adds space around edges */
+}
+
+/* ============================================
+   CONTAINER - Main content wrapper
+   ============================================ */
+.container {
+    position: relative; /* Allows absolute positioning of child elements */
+    border-radius: 24px; /* Rounds the corners */
+    padding: 40px; /* Space inside the container */
+    max-width: 500px; /* Maximum width of container */
+    width: 100%; /* Takes full width up to max-width */
+    text-align: center; /* Centers text inside */
+}
+
+/* ============================================
+   H1 - "Pomodoro Timer" title
+   ============================================ */
+h1 {
+    position: fixed; /* Stays in place when scrolling, positioned relative to viewport */
+    top: 20px; /* 20px from top of screen */
+    left: 20px; /* 20px from left of screen */
+    color: #333; /* Dark gray text color */
+    margin: 0; /* Removes default margin */
+    font-size: 4.5rem; /* Large font size */
+    font-weight: 700; /* Bold text */
+    background-color:rgb(114, 132, 211); /* Purple gradient */
+    -webkit-background-clip: text; /* Clips background to text (for gradient text effect) */
+    -webkit-text-fill-color: transparent; /* Makes text transparent so gradient shows through */
+    background-clip: text; /* Standard property for gradient text */
+    z-index: 1000; /* Ensures title stays on top of other elements */
+}
+
+/* ============================================
+   TIMER DISPLAY - Container for the countdown timer
+   ============================================ */
+.timer-display {
+    margin: 40px 0; /* Adds vertical spacing above and below */
+}
+
+/* ============================================
+   TIME - The actual countdown numbers (25:00, etc.)
+   ============================================ */
+.time {
+    font-size: 5rem; /* Very large font for visibility */
+    font-weight: 700; /* Bold text */
+    color: #333; /* Dark gray color */
+    font-variant-numeric: tabular-nums; /* Makes numbers same width (prevents jumping) */
+    letter-spacing: -2px; /* Tighter spacing between characters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* ============================================
+   CONTROLS - Container for Start/Pause/Reset buttons
+   ============================================ */
+.controls {
+    display: flex; /* Arranges buttons in a row */
+    gap: 12px; /* Space between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    margin-bottom: 40px; /* Space below buttons */
+    flex-wrap: wrap; /* Allows buttons to wrap on small screens */
+}
+
+/* ============================================
+   BUTTONS - Base styles for all buttons
+   ============================================ */
+.btn {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: 14px 32px; /* Space inside button */
+    font-size: 1rem; /* Button text size */
+    font-weight: 600; /* Semi-bold text */
+    border: none; /* Removes default border */
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer; /* Shows hand cursor on hover */
+    transition: all 0.3s ease; /* Smooth animation for all changes */
+    text-transform: uppercase; /* Makes text all caps */
+    letter-spacing: 0.5px; /* Slight spacing between letters */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+/* Button hover effect - lifts button up slightly */
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px); /* Moves button up 2px */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Button click effect - pushes button back down */
+.btn:active:not(:disabled) {
+    transform: translateY(0); /* Returns to original position */
+}
+
+/* Disabled button styling */
+.btn:disabled {
+    opacity: 0.5; /* Makes button semi-transparent */
+    cursor: not-allowed; /* Shows "not allowed" cursor */
+}
+
+/* ============================================
+   BUTTON VARIANTS - Different button colors
+   ============================================ */
+
+/* Primary button (Start button) - Purple gradient */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Secondary button (Pause/Reset buttons) - Gray */
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+/* Accent button - Pink/red gradient */
+.btn-accent {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+/* ============================================
+   TIME SETTINGS - Section for custom time input
+   (Currently not used but kept for future use)
+   ============================================ */
+.time-settings {
+    padding: 24px; /* Space inside section */
+    margin-bottom: 24px; /* Space below section */
+}
+
+.time-settings h2 {
+    color: #333; /* Dark gray text */
+    font-size: 1.2rem; /* Medium heading size */
+    margin-bottom: 20px; /* Space below heading */
+    font-weight: 600; /* Semi-bold */
+}
+
+/* ============================================
+   INPUT GROUP - Container for label and input fields
+   ============================================ */
+.input-group {
+    margin-bottom: 16px; /* Space between input groups */
+    display: flex; /* Arranges label and input side by side */
+    align-items: center; /* Vertically centers label and input */
+    justify-content: center; /* Centers horizontally */
+    gap: 12px; /* Space between label and input */
+}
+
+.input-group label {
+    color: #555; /* Medium gray text */
+    font-weight: 500; /* Medium weight */
+    min-width: 80px; /* Ensures labels align */
+    text-align: right; /* Right-aligns label text */
+}
+
+.input-group input {
+    padding: 12px 16px; /* Space inside input */
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Text size */
+    width: 100px; /* Fixed width */
+    text-align: center; /* Centers text in input */
+    transition: border-color 0.3s ease; /* Smooth border color change */
+}
+
+/* Input focus effect - highlights when clicked */
+.input-group input:focus {
+    outline: none; /* Removes default browser outline */
+    border-color: #667eea; /* Changes border to purple */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* Adds purple glow */
+}
+
+/* ============================================
+   PRESET BUTTONS - Quick time selection buttons
+   ============================================ */
+.preset-buttons {
+    display: flex; /* Arranges buttons in a row */
+    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Centers buttons */
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+/* Individual preset button (25 min, 15 min, etc.) */
+.preset-btn {
+    padding: 10px 20px; /* Space inside button */
+    background: white; /* White background */
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    font-weight: 500; /* Medium weight text */
+    color: #555; /* Medium gray text */
+    transition: all 0.3s ease; /* Smooth animations */
+    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+/* Preset button hover effect - changes to purple gradient */
+.preset-btn:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white; /* White text on hover */
+    border-color: transparent; /* Removes border */
+    transform: translateY(-2px); /* Lifts button up */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* Purple shadow */
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Styles for mobile devices
+   ============================================ */
+@media (max-width: 600px) {
+    /* Smaller padding on mobile */
+    .container {
+        padding: 30px 20px;
+    }
+    
+    /* Smaller title on mobile */
+    h1 {
+        font-size: 1.5rem;
+        top: 15px;
+        left: 15px;
+    }
+    
+    /* Smaller timer display on mobile */
+    .time {
+        font-size: 3.5rem;
+    }
+    
+    /* Smaller buttons on mobile */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
