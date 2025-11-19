@@ -2,7 +2,7 @@
 
 A beautiful and functional Pomodoro timer web application to help you stay focused and productive. This is the start of my journey into creating visually appealing web applications!
 
-![Pomodoro Timer Screenshot](./screenshot.png)
+![Pomodoro Timer Screenshot](./tomodoroimage.png)
 
 ## ✨ Features
 
